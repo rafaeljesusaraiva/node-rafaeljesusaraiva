@@ -1,0 +1,381 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #131313;
+  color: white;
+  font-family: sans-serif;
+  line-height: 1.2rem;
+}
+
+div {
+  font-size: 1rem;
+}
+
+.app {
+  max-width: 100vw;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  min-height: 100%;
+  padding: 0 20px;
+}
+
+.sidebar .header {
+  width: 100%;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar .header, .sidebar .header::after, .sidebar .header::before {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+}
+
+.sidebar .header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: calc(1rem + 30px);
+}
+
+.sidebar .header .logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.sidebar .header .title {
+  margin-left: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.sidebar .menu {
+  margin-top: 40px;
+}
+
+.sidebar .menu .divider {
+  width: 100%;
+  border-bottom: 2px solid #222222;
+  height: 1px;
+}
+
+.sidebar .menu .block {
+  margin: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sidebar .menu .block .option {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  list-style-type: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sidebar .menu .block .option, .sidebar .menu .block .option::after, .sidebar .menu .block .option::before {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+}
+
+.sidebar .menu .block .option.active {
+  background-color: #222222;
+}
+
+.sidebar .menu .block .option.active li .icon {
+  background-color: #3983f6;
+}
+
+.sidebar .menu .block .option:not(.active):hover {
+  background-color: #1b1b1b;
+}
+
+.sidebar .menu .block .option li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: inherit;
+}
+
+.sidebar .menu .block .option li .icon {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #222222;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sidebar .menu .block .option li .icon * {
+  background-color: inherit;
+}
+
+.sidebar .menu .block .option li .nome {
+  margin-left: 15px;
+}
+
+.main-container {
+  width: calc(100vw - 200px);
+  min-height: 100%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #222222;
+}
+
+.main-container .topbar {
+  height: calc(1.5rem + 30px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+  padding: 0 30px 20px 30px;
+  border-top-left-radius: inherit;
+  background-color: inherit;
+  border-bottom: 1px solid #303030;
+}
+
+.main-container .topbar .searchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  position: relative;
+}
+
+.main-container .topbar .searchBar .icon, .main-container .topbar .searchBar #topbar-search, .main-container .topbar .searchBar button {
+  border: 1px solid #303030;
+  padding: 10px;
+}
+
+.main-container .topbar .searchBar .icon:focus, .main-container .topbar .searchBar #topbar-search:focus, .main-container .topbar .searchBar button:focus {
+  outline: none;
+}
+
+.main-container .topbar .searchBar .icon {
+  border-right: none;
+  padding-left: 15px;
+}
+
+.main-container .topbar .searchBar #topbar-search {
+  border-left: none;
+  border-right: none;
+  width: 50vw;
+  max-width: 30vw;
+}
+
+.main-container .topbar .searchBar button {
+  border-left: none;
+  padding-right: 15px;
+}
+
+.main-container .topbar .searchBar .search-results {
+  position: absolute;
+  top: calc(1.5rem + 30px);
+  left: 0;
+  width: 100%;
+  min-height: 1rem;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #131313;
+  border: 1px solid #303030;
+}
+
+.main-container .topbar .searchBar .search-results.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-container .topbar .searchBar .search-results a {
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.main-container .topbar .searchBar .search-results a:hover {
+  background-color: #1b1b1b;
+}
+
+.main-container > .content {
+  width: calc(100vw - 280px);
+  margin: 20px auto;
+  background-color: inherit;
+}
+
+.main-container > .content .block {
+  width: calc(100% / 4 - 20px);
+  min-height: 100px;
+  float: left;
+  background-color: #131313;
+  margin: 0 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.main-container > .content .block.w-2 {
+  width: calc(100% / 2 - 20px);
+}
+
+.main-container > .content .block.w-3 {
+  width: calc(100% - 20px);
+}
+
+.main-container > .content .block > .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.main-container > .content .block > .title::before {
+  content: '\2022';
+  padding-right: 5px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.main-container > .content .block:nth-child(1n) > .title::before {
+  color: #df2935;
+}
+
+.main-container > .content .block:nth-child(2n) > .title::before {
+  color: #f9d46a;
+}
+
+.main-container > .content .block:nth-child(3n) > .title::before {
+  color: #3983f6;
+}
+
+.main-container > .content .block:nth-child(4n) > .title::before {
+  color: #78dea2;
+}
+
+.main-container > .content .block:nth-child(5n) > .title::before {
+  color: #d559cf;
+}
+
+.main-container > .content .block:nth-child(6n) > .title::before {
+  color: #6b5348;
+}
+
+.main-container > .content .card {
+  float: left;
+  margin: 0 10px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  position: relative;
+  border-radius: 15px;
+  -webkit-transition: -webkit-transform .2s ease;
+  transition: -webkit-transform .2s ease;
+  transition: transform .2s ease;
+  transition: transform .2s ease, -webkit-transform .2s ease;
+  overflow: hidden;
+}
+
+.main-container > .content .card:hover {
+  -webkit-transform: translate(3px, -3px);
+          transform: translate(3px, -3px);
+  cursor: pointer;
+}
+
+.main-container > .content .card.horiz {
+  max-width: 400px;
+}
+
+.main-container > .content .card.vert {
+  width: 200px;
+}
+
+.main-container > .content .card.square {
+  width: 400px;
+}
+
+.main-container > .content .card .img-container {
+  width: 100%;
+  max-height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.main-container > .content .card .img-container img {
+  display: block;
+  width: 100%;
+}
+
+.main-container > .content .card .footer {
+  min-height: 30px;
+  margin: 10px 15px;
+}
+
+.main-container > .content .card .footer .title {
+  font-weight: bold;
+}
+
+.main-container > .content .card .footer .date {
+  text-align: right;
+  font-size: 0.75rem;
+}
+/*# sourceMappingURL=main.css.map */

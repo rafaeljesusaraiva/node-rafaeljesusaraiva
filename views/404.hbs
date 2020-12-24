@@ -1,0 +1,113 @@
+<style>
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .page {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+
+        /*breakpoint*/
+        .page {
+            flex-direction: column;
+        }
+    }
+
+    .segment {
+        flex: 1;
+        font-size: 18px;
+        opacity: 0;
+        padding: 1rem;
+    }
+
+    .segment,
+    .segment * {
+        cursor: default;
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Old versions of Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version */
+    }
+
+    .left {
+        text-align: right;
+    }
+
+    .signal {
+        font-size: 5em;
+        font-weight: bold;
+    }
+
+    .right {
+        justify-content: left;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    .btn {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #1b1b1b;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .btn:hover {
+        background-color: #222222;
+    }
+
+    .totoro {
+        background-image: url("/img/totoro.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+<section class="page">
+    <div class="segment left sides">
+        <span class="signal">{{errorCode}}</span><br>{{error}}
+    </div>
+    <div class="segment totoro"></div>
+    <div class="segment right sides">
+        <a class="btn" href="/">
+            Regressar
+        </a>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+<script>
+    gsap.to(".sides", {
+        delay: 1,
+        duration: 2, 
+        opacity: 1,
+        ease: "power1", 
+        paused: true
+    }).play();
+
+    gsap.to(".totoro", {
+        delay: .5,
+        duration: 4, 
+        opacity: 1,
+        ease: "power1", 
+        paused: true
+    }).play();
+</script>
