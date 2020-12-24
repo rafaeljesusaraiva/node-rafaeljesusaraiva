@@ -1,0 +1,23 @@
+{
+  "name": "rafaeljesusaraiva",
+  "version": "1.0.0",
+  "description": "my website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaeljesusaraiva/node-rafaeljesusaraiva.git"
+  },
+  "keywords": [
+    "website",
+    "rafaeljesusaraiva"
+  ],
+  "author": "Rafael Jesus Saraiva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rafaeljesusaraiva/node-rafaeljesusaraiva/issues"
+  },
+  "homepage": "https://github.com/rafaeljesusaraiva/node-rafaeljesusaraiva#readme"
+}
