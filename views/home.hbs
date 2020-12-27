@@ -1,1 +1,6 @@
 <h1>Hello World from Handlebars</h1>
+{{#if user_id}}
+    Logout
+{{else}}
+    <a href="/user/login">Login</a><br><a href="/user/register">Register</a>
+{{/if}}
