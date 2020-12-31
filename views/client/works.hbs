@@ -1,0 +1,40 @@
+<div class="content masonry">
+    {{#each projects}}
+        {{>admin-content-card link=dataValues.fileFormat imgSrc=dataValues.coverFile client=dataValues.name date=dataValues.date}}
+    {{/each}}
+</div>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script>
+    var imagesContainer = document.querySelector('.content.masonry');
+    imagesLoaded(imagesContainer, function() {
+        var cardImages = document.getElementsByClassName('card-image');
+        for (var i = 0; i < cardImages.length; i++)
+            setOrientation(cardImages.item(i));
+        var baseItemWidth = document.querySelector(".content.masonry>.card.vert");
+        var msnry = new Masonry('.masonry', { columnWidth: baseItemWidth, itemSelector: '.card', percentPosition: true });
+
+        // set links
+        var cards = document.getElementsByClassName('card');
+        for(let i=0;i<cards.length;i++){
+            cards[i].addEventListener('click', function(){
+                window.location.href = './sessao/'+cards[i].dataset.link;
+            });
+        };
+
+        window.addEventListener("resize", ()=>{
+            msnry.reloadItems();
+        });
+    });
+
+    function setOrientation(src) {
+        var parent = src.parentNode.parentNode;
+        if (src.naturalWidth > src.naturalHeight) {
+            parent.classList.add('horiz');
+        } else if (src.naturalWidth < src.naturalHeight) {
+            parent.classList.add('vert');
+        } else {
+            parent.classList.add('square');
+        }
+    }
+</script>

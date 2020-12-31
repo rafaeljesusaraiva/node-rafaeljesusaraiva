@@ -1,0 +1,37 @@
+<nav class="sidebar">
+    <div class="header">
+        <div class="logo">
+            <img src="/img/logo.png" alt="Logo">
+        </div>
+        <div class="title">Rafael Saraiva</div>
+    </div>
+    <div class="menu">
+        <ul class="block">
+            <a href="/cliente" class="option {{#equal pageUrl '/cliente'}}active{{/equal}}">
+                <li>
+                    <div class="icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="nome">Início</div>
+                </li>
+            </a>
+            <a href="/cliente/sessoes" class="option {{#equal pageUrl '/cliente/sessoes'}}active{{/equal}}">
+                <li>
+                    <div class="icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <div class="nome">Sessões</div>
+                </li>
+            </a>
+        </ul>
+        <div class="divider"></div>
+        <ul class="block">
+            <a href="/cliente/configuracoes" class="option {{#equal pageUrl '/cliente/configuracoes'}}active{{/equal}}">
+                <li><div class="icon"><i class="fas fa-cogs"></i></div><div class="nome">Configurações</div></li>
+            </a>
+            <a class="option logoutBtn">
+                <li><div class="icon"><i class="fas fa-sign-out-alt"></i></div><div class="nome">Sair</div></li>
+            </a>
+        </ul>
+    </div>
+</nav>

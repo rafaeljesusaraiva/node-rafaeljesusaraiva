@@ -9,6 +9,22 @@ function hbsHelpers(hbs) {
                 } else {
                     return options.fn(this);
                 }
+            },
+            setVar: function(varName, varValue, options) {
+                options.data.root[varName] = varValue;
+            },
+            counter: function (index){
+                return index + 1;
+            },
+            concat: function() {
+                arguments = [...arguments].slice(0, -1);
+                return arguments.join('');
+            },
+            times: function(n, block) {
+                var accum = '';
+                for(var i = 1; i <= n; ++i)
+                    accum += block.fn(i);
+                return accum;
             }
             // More helpers...
         },

@@ -1,0 +1,64 @@
+<div class="content">
+    <!-- Feeedback Widget -->
+    <div class="block w-3" style="float: none;">
+        <div class="title">Novo Projeto</div>
+        <form class="content feedbackForm" enctype="multipart/form-data" onsubmit="return false;" data-link="/api/project/add">
+            <select class="inClient" name="client">
+                {{#each clients}}
+                    <option {{#equal @key 0}}selected="selected"{{/equal}}value="{{dataValues.name}}">{{dataValues.name}}</option>
+                {{/each}}
+            </select>
+            <input type="text" class="inName" name="name" placeholder="Nome Sessao">
+            <input type="text" class="inPrice" name="price" placeholder="Preço sessao">
+            <input type="text" class="inLocation" name="location" placeholder="Localizacao">
+            <input type="date" class="inDate" name="date" placeholder="data">
+            <input type="text" class="inCoverFileName" name="coverFileName" placeholder="Cover File Name">
+            <input type="text" class="inFileFormat" name="fileFormat" placeholder="Formato Imagens">
+            <input type="file" class="inFiles" multiple="multiple" name="files" accept="image/png, image/jpeg, image/jpg">
+            <button class="submit" type="submit">Submeter</button>
+        </form>
+    </div>
+    <!-- Show Gallery -->
+    <div class="masonry">
+        {{#each projects}}
+            {{>admin-content-card link=dataValues.fileFormat imgSrc=dataValues.coverFile client=dataValues.name date=dataValues.date}}
+        {{/each}}
+    </div>
+</div>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/project.submit.js"></script>
+<script>
+    var imagesContainer = document.querySelector('.masonry');
+    imagesLoaded(imagesContainer, function() {
+        var cardImages = document.getElementsByClassName('card-image');
+        for (var i = 0; i < cardImages.length; i++)
+            setOrientation(cardImages.item(i));
+        var baseItemWidth = document.querySelector(".masonry>.card.vert");
+        var msnry = new Masonry('.masonry', { columnWidth: baseItemWidth, itemSelector: '.card', percentPosition: true });
+
+        // set links
+        var cards = document.getElementsByClassName('card');
+        for(let i=0;i<cards.length;i++){
+            cards[i].addEventListener('click', function(){
+                window.location.href = './projeto/'+cards[i].dataset.link;
+            });
+        };
+        window.addEventListener("resize", ()=>{
+            msnry.reloadItems();
+        });
+    });
+
+    
+
+    function setOrientation(src) {
+        var parent = src.parentNode.parentNode;
+        if (src.naturalWidth > src.naturalHeight) {
+            parent.classList.add('horiz');
+        } else if (src.naturalWidth < src.naturalHeight) {
+            parent.classList.add('vert');
+        } else {
+            parent.classList.add('square');
+        }
+    }
+</script>

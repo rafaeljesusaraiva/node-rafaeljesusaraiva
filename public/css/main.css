@@ -3,10 +3,13 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: #131313;
-  color: white;
   font-family: sans-serif;
   line-height: 1.2rem;
+}
+
+html, body {
+  background-color: #131313;
+  color: white;
 }
 
 div {
@@ -93,6 +96,7 @@ div {
   list-style-type: none;
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .sidebar .menu .block .option, .sidebar .menu .block .option::after, .sidebar .menu .block .option::before {
@@ -190,12 +194,16 @@ div {
   position: relative;
 }
 
-.main-container .topbar .searchBar .icon, .main-container .topbar .searchBar #topbar-search, .main-container .topbar .searchBar button {
+.main-container .topbar .searchBar .icon,
+.main-container .topbar .searchBar #topbar-search,
+.main-container .topbar .searchBar button {
   border: 1px solid #303030;
   padding: 10px;
 }
 
-.main-container .topbar .searchBar .icon:focus, .main-container .topbar .searchBar #topbar-search:focus, .main-container .topbar .searchBar button:focus {
+.main-container .topbar .searchBar .icon:focus,
+.main-container .topbar .searchBar #topbar-search:focus,
+.main-container .topbar .searchBar button:focus {
   outline: none;
 }
 
@@ -209,11 +217,15 @@ div {
   border-right: none;
   width: 50vw;
   max-width: 30vw;
+  background-color: #131313;
+  color: white;
 }
 
 .main-container .topbar .searchBar button {
   border-left: none;
   padding-right: 15px;
+  background-color: #131313;
+  color: white;
 }
 
 .main-container .topbar .searchBar .search-results {
@@ -221,25 +233,30 @@ div {
   top: calc(1.5rem + 30px);
   left: 0;
   width: 100%;
+  background-color: #131313;
+  color: white;
   min-height: 1rem;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #131313;
   border: 1px solid #303030;
+  z-index: 999;
 }
 
 .main-container .topbar .searchBar .search-results.show {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 99;
 }
 
 .main-container .topbar .searchBar .search-results a {
   text-decoration: none;
   padding: 10px 20px;
+  background-color: #131313;
+  color: white;
 }
 
 .main-container .topbar .searchBar .search-results a:hover {
@@ -250,6 +267,43 @@ div {
   width: calc(100vw - 280px);
   margin: 20px auto;
   background-color: inherit;
+}
+
+.main-container > .content .title {
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.main-container > .content .title h4 {
+  font-size: .8rem;
+  margin-top: 10px;
+}
+
+.main-container > .content .title > a.download {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 10px;
+  list-style-type: none;
+  color: inherit;
+  text-decoration: none;
+  background-color: #131313;
+  color: white;
+  border: none;
+  -webkit-transition: -webkit-transform .2s ease;
+  transition: -webkit-transform .2s ease;
+  transition: transform .2s ease;
+  transition: transform .2s ease, -webkit-transform .2s ease;
+}
+
+.main-container > .content .title > a.download:focus {
+  outline: 0;
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
 }
 
 .main-container > .content .block {
@@ -312,6 +366,49 @@ div {
   color: #6b5348;
 }
 
+.main-container > .content .block > form.content > textarea {
+  width: 100%;
+  min-height: 1rem !important;
+  resize: vertical;
+  background-color: #222222;
+  padding: 10px;
+  color: white;
+}
+
+.main-container > .content .block > form.content > button {
+  margin-top: 5px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  list-style-type: none;
+  color: inherit;
+  text-decoration: none;
+  background-color: #222222;
+  color: white;
+  border: none;
+  -webkit-transition: background-color .2s ease, -webkit-transform .2s ease;
+  transition: background-color .2s ease, -webkit-transform .2s ease;
+  transition: transform .2s ease, background-color .2s ease;
+  transition: transform .2s ease, background-color .2s ease, -webkit-transform .2s ease;
+}
+
+.main-container > .content .block > form.content > button.sucess {
+  background-color: #99cc33;
+  color: white;
+}
+
+.main-container > .content .block > form.content > button.error {
+  background-color: #ad1602;
+  color: white;
+}
+
+.main-container > .content .block > form.content > button:focus {
+  outline: 0;
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+}
+
 .main-container > .content .card {
   float: left;
   margin: 0 10px;
@@ -324,6 +421,8 @@ div {
   transition: transform .2s ease;
   transition: transform .2s ease, -webkit-transform .2s ease;
   overflow: hidden;
+  background-color: #131313;
+  color: white;
 }
 
 .main-container > .content .card:hover {
@@ -333,7 +432,7 @@ div {
 }
 
 .main-container > .content .card.horiz {
-  max-width: 400px;
+  max-width: 420px;
 }
 
 .main-container > .content .card.vert {
@@ -366,16 +465,230 @@ div {
 }
 
 .main-container > .content .card .footer {
-  min-height: 30px;
+  min-height: 20px;
   margin: 10px 15px;
 }
 
-.main-container > .content .card .footer .title {
+.main-container > .content .card .footer > .title {
   font-weight: bold;
 }
 
-.main-container > .content .card .footer .date {
+.main-container > .content .card .footer > .date {
   text-align: right;
   font-size: 0.75rem;
+}
+
+.main-container > .content .card .footer > .downloadBtn {
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+ *  Login / Register Forms
+ */
+.message {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 90%;
+  min-height: calc(1rem + 23px);
+  margin: 10px auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.message.show {
+  opacity: 1;
+}
+
+.message.alert {
+  background-color: #ffcc00;
+  color: black;
+}
+
+.message.success {
+  background-color: #99cc33;
+  color: white;
+}
+
+form.authForm {
+  width: 500px;
+  max-width: 90vw;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+form.authForm h1 {
+  margin-bottom: 30px;
+}
+
+form.authForm .input-block {
+  margin: 10px 0;
+  width: 100%;
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+}
+
+form.authForm .input-block * {
+  background-color: transparent;
+}
+
+form.authForm .input-block input {
+  width: 100%;
+  height: 100%;
+  color: white !important;
+  padding-top: 20px;
+  border: none;
+  outline: none;
+  /* Estilo fundo */
+  background-color: #131313;
+  width: 100%;
+}
+
+form.authForm .input-block input:-webkit-autofill,
+form.authForm .input-block input:-webkit-autofill:hover,
+form.authForm .input-block input:-webkit-autofill:focus textarea:-webkit-autofill,
+form.authForm .input-block textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+form.authForm .input-block select:-webkit-autofill,
+form.authForm .input-block select:-webkit-autofill:hover,
+form.authForm .input-block select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #131313 inset !important;
+          box-shadow: 0 0 0px 1000px #131313 inset !important;
+}
+
+form.authForm .input-block input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
+
+form.authForm .input-block label {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+}
+
+form.authForm .input-block label::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 3px solid #5fa8d3;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+form.authForm .input-block label .content-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+form.authForm .input-block input:focus + .label-name .content-name,
+form.authForm .input-block input:valid + .label-name .content-name {
+  -webkit-transform: translatey(-150%);
+          transform: translatey(-150%);
+  font-size: 14px;
+  color: #5fa8d3;
+}
+
+form.authForm .input-block input:focus + .label-name::after,
+form.authForm .input-block input:valid + .label-name::after {
+  -webkit-transform: translatex(0%);
+          transform: translatex(0%);
+}
+
+form.authForm button {
+  margin-top: 30px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  list-style-type: none;
+  color: inherit;
+  text-decoration: none;
+  background-color: #131313;
+  color: white;
+  border: 1px solid white;
+  -webkit-transition: -webkit-transform .2s ease;
+  transition: -webkit-transform .2s ease;
+  transition: transform .2s ease;
+  transition: transform .2s ease, -webkit-transform .2s ease;
+}
+
+form.authForm button:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+form.authForm button:focus {
+  outline: 0;
+  background-color: #222222;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+form.authForm .redirect-links {
+  margin: 20px 0;
+  text-align: center;
+}
+
+form.authForm .redirect-links p {
+  margin: 20px 0;
+}
+
+form.authForm .redirect-links p a {
+  padding: 5px 10px;
+  margin: 0 10px;
+  border: 1px solid white;
+  text-decoration: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #131313;
+  background-size: 200%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#131313), color-stop(50%, #131313), color-stop(50%, white), to(white));
+  background-image: linear-gradient(90deg, #131313 0%, #131313 50%, white 50%, white 100%);
+  -webkit-transition: background-position 0.3s cubic-bezier(0.47, 0.1, 1, 0.63), color 0.2s linear;
+  transition: background-position 0.3s cubic-bezier(0.47, 0.1, 1, 0.63), color 0.2s linear;
+  -webkit-transition-delay: 0.0s, 0.15s;
+          transition-delay: 0.0s, 0.15s;
+}
+
+form.authForm .redirect-links p a:hover {
+  color: #131313;
+  cursor: pointer;
+  background-color: white;
+  background-position: -100% 100%;
 }
 /*# sourceMappingURL=main.css.map */

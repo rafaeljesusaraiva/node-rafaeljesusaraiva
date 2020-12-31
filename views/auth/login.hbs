@@ -1,0 +1,25 @@
+<div class="message alert" style="display: none;">&nbsp;</div>
+<div class="message success" style="display: none;">&nbsp;</div>
+<form class="authForm" onsubmit="return false;">
+  <h1>Entrar</h1>
+
+  <div class="input-block">
+    <input type="text" name="name" autocomplete="off" class="username" required />
+    <label for="name" class="label-name">
+      <span class="content-name">Nome de Utilizador</span>
+    </label>
+  </div>
+  <div class="input-block">
+    <input type="password" name="password" autocomplete="off" class="password" required />
+    <label for="name" class="label-name">
+      <span class="content-name">Palavra-passe</span>
+    </label>
+  </div>
+  <button class="submit" type="submit">Login</button>
+  <div class="redirect-links">
+    <p>Não tens uma conta? <a href="/registar">Regista-te</a></p>
+  <p>Ou regressa à <a href="/">Página Inicial</a></p>
+  </div>
+</form>
+
+<script src="/js/auth-page.login.js"></script>

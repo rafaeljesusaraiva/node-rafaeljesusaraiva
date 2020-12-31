@@ -1,2 +1,8 @@
 https://github.com/cornflourblue/node-role-based-authorization-api
 https://github.com/cornflourblue/node-mysql-registration-login-api
+
+
+update:
+https://bezkoder.com/node-js-jwt-authentication-mysql/
+
+https://attacomsian.com/blog/xhr-node-file-upload

@@ -1,0 +1,37 @@
+<div class="message alert" style="display: none;">&nbsp;</div>
+<div class="message success" style="display: none;">&nbsp;</div>
+<form class="authForm" onsubmit="return false;">
+    <h1>Registar</h1>
+
+    <div class="input-block">
+        <input type="text" name="name" autocomplete="off" class="name" required />
+        <label for="name" class="label-name">
+            <span class="content-name">Nome Próprio</span>
+        </label>
+    </div>
+    <div class="input-block">
+        <input type="email" name="name" autocomplete="off" class="email" required />
+        <label for="name" class="label-name">
+            <span class="content-name">Email</span>
+        </label>
+    </div>
+    <div class="input-block">
+        <input type="text" name="name" autocomplete="off" class="username" required />
+        <label for="name" class="label-name">
+            <span class="content-name">Nome de Utilizador</span>
+        </label>
+    </div>
+    <div class="input-block">
+        <input type="password" name="password" autocomplete="off" class="password" required />
+        <label for="name" class="label-name">
+            <span class="content-name">Palavra-passe (6 caracteres ou mais)</span>
+        </label>
+    </div>
+    <button class="submit" type="submit">Registar</button>
+    <div class="redirect-links">
+        <p>Já tens uma conta? <a href="/login">Entra aqui</a></p>
+        <p>Ou regressa à <a href="/">Página Inicial</a></p>
+    </div>
+</form>
+
+<script src="/js/auth-page.signup.js"></script>

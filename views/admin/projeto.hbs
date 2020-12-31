@@ -1,0 +1,59 @@
+<style>
+    .card .footer { position: relative; margin: 0 !important; padding: 10px 0 !important; min-height: 36px !important; }
+    .card > .footer > .downloadBtn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(calc(0% - 8px));
+    }
+</style>
+<div class="content">
+    <!-- Session Title -->
+    <div class="title">
+        {{#each projectInfo}}
+            <h1>{{dataValues.name}}</h1>
+            <h4>{{dataValues.date}}</h4>
+            <a class="download" href="{{#concat '/uploads/' dataValues.fileFormat '/' dataValues.fileFormat '.zip'}}{{/concat}}" download="{{#concat dataValues.fileFormat '.zip'}}{{/concat}}" target="_blank"><i class="fas fa-download"></i></a>
+        {{/each}}
+    </div>
+    <!-- Feeedback Widget -->
+    <div class="block w-3" style="float: none;">
+        <div class="title">Feedback</div>
+        <form class="content feedbackForm">
+            <textarea readonly name="feedback" class="feedback">{{#each projectInfo}}{{dataValues.feedback}}{{/each}}</textarea>
+        </form>
+    </div>
+    <!-- Show Gallery -->
+    <div class="masonry">
+        {{#each projectInfo}}
+            {{#times dataValues.totalImages}}
+                {{>admin-show-card imgName=(concat ../dataValues.fileFormat '-' this '.jpg') link=(concat '/uploads/' ../dataValues.fileFormat '/full/' ../dataValues.fileFormat '-' this '.jpg') imgSrc=(concat '/uploads/' ../dataValues.fileFormat '/' ../dataValues.fileFormat '-' this '.jpg')}}
+            {{/times}}
+        {{/each}}
+    </div>
+</div>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script>
+    var imagesContainer = document.querySelector('.masonry');
+    imagesLoaded(imagesContainer, function() {
+        var cardImages = document.getElementsByClassName('card-image');
+        for (var i = 0; i < cardImages.length; i++)
+            setOrientation(cardImages.item(i));
+        var baseItemWidth = document.querySelector(".masonry>.card.vert");
+        var msnry = new Masonry('.masonry', { columnWidth: baseItemWidth, itemSelector: '.card', percentPosition: true });
+        window.addEventListener("resize", ()=>{
+            msnry.reloadItems();
+        });
+    });
+
+    function setOrientation(src) {
+        var parent = src.parentNode.parentNode;
+        if (src.naturalWidth > src.naturalHeight) {
+            parent.classList.add('horiz');
+        } else if (src.naturalWidth < src.naturalHeight) {
+            parent.classList.add('vert');
+        } else {
+            parent.classList.add('square');
+        }
+    }
+</script>

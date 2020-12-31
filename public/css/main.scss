@@ -6,10 +6,13 @@ $color_foreground: rgb(34, 34, 34);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: $color_background;
-    color: white;
     font-family: sans-serif;
     line-height: 1.2rem;
+}
+
+html, body {
+    background-color: $color_background;
+    color: white;
 }
 
 div {
@@ -33,7 +36,9 @@ div {
         display: flex;
         align-items: center;
 
-        &, &::after, &::before {
+        &,
+        &::after,
+        &::before {
             -webkit-user-select: none;
             -webkit-user-drag: none;
             -webkit-app-region: no-drag;
@@ -49,6 +54,7 @@ div {
                 max-height: 100%;
             }
         }
+
         .title {
             margin-left: 15px;
             font-size: 1.1rem;
@@ -78,8 +84,11 @@ div {
                 list-style-type: none;
                 color: inherit;
                 text-decoration: none;
+                cursor: pointer;
 
-                &, &::after, &::before {
+                &,
+                &::after,
+                &::before {
                     -webkit-user-select: none;
                     -webkit-user-drag: none;
                     -webkit-app-region: no-drag;
@@ -87,6 +96,7 @@ div {
 
                 &.active {
                     background-color: $color_foreground;
+
                     li .icon {
                         background-color: rgb(57, 131, 246);
                     }
@@ -113,7 +123,9 @@ div {
                         align-items: center;
                         justify-content: center;
 
-                        * { background-color: inherit; }
+                        * {
+                            background-color: inherit;
+                        }
                     }
 
                     .nome {
@@ -148,11 +160,15 @@ div {
             flex-wrap: nowrap;
             position: relative;
 
-            .icon, #topbar-search, button {
+            .icon,
+            #topbar-search,
+            button {
                 border: 1px solid rgb(48, 48, 48);
                 padding: 10px;
 
-                &:focus { outline: none; }
+                &:focus {
+                    outline: none;
+                }
             }
 
             .icon {
@@ -165,11 +181,15 @@ div {
                 border-right: none;
                 width: 50vw;
                 max-width: 30vw;
+                background-color: $color_background;
+                color: white;
             }
 
             button {
                 border-left: none;
                 padding-right: 15px;
+                background-color: $color_background;
+                color: white;
             }
 
             .search-results {
@@ -178,19 +198,24 @@ div {
                 left: 0;
                 width: 100%;
                 // display: flex;
+                background-color: $color_background;
+                color: white;
                 min-height: 1rem;
                 display: none;
                 flex-direction: column;
-                background-color: $color_background;
                 border: 1px solid rgb(48, 48, 48);
+                z-index: 999;
 
                 &.show {
                     display: flex;
+                    z-index: 99;
                 }
-    
+
                 a {
                     text-decoration: none;
                     padding: 10px 20px;
+                    background-color: $color_background;
+                    color: white;
 
                     &:hover {
                         background-color: $color_background_hover;
@@ -204,6 +229,38 @@ div {
         width: calc(100vw - 280px);
         margin: 20px auto;
         background-color: inherit;
+
+        .title {
+            margin-bottom: 10px;
+            padding: 10px;
+            position: relative;
+            h4 {
+                font-size: .8rem;
+                margin-top: 10px;
+            }
+            &>a.download {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                margin-top: 5px;
+                cursor: pointer;
+                padding: 5px 10px;
+                border-radius: 10px;
+                list-style-type: none;
+                color: inherit;
+                text-decoration: none;
+                // border: 1px solid rgba(255, 255, 255, .3);
+                background-color: $color_background;
+                color: white;
+                border: none;
+                transition: transform .2s ease;
+        
+                &:focus {
+                    outline: 0;
+                    transform: scale(0.99);
+                }
+            }
+        }
 
         .block {
             width: calc(100% / 4 - 20px);
@@ -236,14 +293,70 @@ div {
                 }
             }
 
-            &:nth-child(1n)>.title::before { color: rgb(223, 41, 53) }
-            &:nth-child(2n)>.title::before { color: rgb(249, 212, 106) }
-            &:nth-child(3n)>.title::before { color: rgb(57, 131, 246) }
-            &:nth-child(4n)>.title::before { color: rgb(120, 222, 162) }
-            &:nth-child(5n)>.title::before { color: rgb(213, 89, 207) }
-            &:nth-child(6n)>.title::before { color: rgb(107, 83, 72) }
+            &:nth-child(1n)>.title::before {
+                color: rgb(223, 41, 53)
+            }
 
-            // &>content {}
+            &:nth-child(2n)>.title::before {
+                color: rgb(249, 212, 106)
+            }
+
+            &:nth-child(3n)>.title::before {
+                color: rgb(57, 131, 246)
+            }
+
+            &:nth-child(4n)>.title::before {
+                color: rgb(120, 222, 162)
+            }
+
+            &:nth-child(5n)>.title::before {
+                color: rgb(213, 89, 207)
+            }
+
+            &:nth-child(6n)>.title::before {
+                color: rgb(107, 83, 72)
+            }
+
+            &>form.content {
+                &>textarea {
+                    width: 100%;
+                    min-height: 1rem !important;
+                    resize: vertical;
+                    background-color: $color_foreground;
+                    padding: 10px;
+                    color: white;
+                }
+                &>button {
+                    margin-top: 5px;
+                    cursor: pointer;
+                    padding: 10px;
+                    border-radius: 10px;
+                    width: 100%;
+                    list-style-type: none;
+                    color: inherit;
+                    text-decoration: none;
+                    // border: 1px solid rgba(255, 255, 255, .3);
+                    background-color: $color_foreground;
+                    color: white;
+                    border: none;
+                    transition: transform .2s ease, background-color .2s ease;
+
+                    &.sucess {
+                        background-color: #99cc33;
+                        color: white;
+                    }
+
+                    &.error {
+                        background-color: #ad1602;
+                        color: white;
+                    }
+            
+                    &:focus {
+                        outline: 0;
+                        transform: scale(0.99);
+                    }
+                }
+            }
         }
 
         .card {
@@ -255,14 +368,16 @@ div {
             border-radius: 15px;
             transition: transform .2s ease;
             overflow: hidden;
+            background-color: $color_background;
+            color: white;
 
             &:hover {
                 transform: translate(3px, -3px);
                 cursor: pointer;
             }
 
-            &.horiz { 
-                max-width: 400px;
+            &.horiz {
+                max-width: 420px;
             }
 
             &.vert {
@@ -289,16 +404,211 @@ div {
             }
 
             .footer {
-                min-height: 30px;
+                min-height: 20px;
                 margin: 10px 15px;
 
-                .title {
+                & > .title {
                     font-weight: bold;
                 }
 
-                .date {
+                & > .date {
                     text-align: right;
                     font-size: 0.75rem;
+                }
+
+                & > .downloadBtn {
+                    width: 100%;
+                    color: inherit;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+/*
+ *  Login / Register Forms
+ */
+
+.message {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    min-height: calc(1rem + 23px);
+    margin: 10px auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+
+    &.show {
+        opacity: 1;
+    }
+
+    &.alert {
+        background-color: #ffcc00;
+        color: black;
+    }
+
+    &.success {
+        background-color: #99cc33;
+        color: white;
+    }
+}
+
+form.authForm  {
+    width: 500px;
+    max-width: 90vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    .input-block {
+        margin: 10px 0;
+        width: 100%;
+        position: relative;
+        height: 50px;
+        overflow: hidden;
+
+        * {
+            background-color: transparent;
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            color: white !important;
+            padding-top: 20px;
+            border: none;
+            outline: none;
+            /* Estilo fundo */
+            background-color: $color_background;
+            width: 100%;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus {
+            box-shadow: 0 0 0px 1000px $color_background inset !important;
+        }
+
+        input:-webkit-autofill {
+            -webkit-text-fill-color: white !important;
+        }
+
+        label {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-bottom: 1px solid white;
+            background-color: transparent;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0px;
+                bottom: -1px;
+                height: 100%;
+                width: 100%;
+                border-bottom: 3px solid #5fa8d3;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .content-name {
+                position: absolute;
+                bottom: 5px;
+                left: 0px;
+                transition: all 0.3s ease;
+            }
+        }
+
+        & input:focus+.label-name .content-name,
+        & input:valid+.label-name .content-name {
+            transform: translatey(-150%);
+            font-size: 14px;
+            color: #5fa8d3;
+        }
+
+        & input:focus+.label-name::after,
+        & input:valid+.label-name::after {
+            transform: translatex(0%);
+        }
+    }
+
+    button {
+        margin-top: 30px;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+        list-style-type: none;
+        color: inherit;
+        text-decoration: none;
+        // border: 1px solid rgba(255, 255, 255, .3);
+        background-color: $color_background;
+        color: white;
+        border: 1px solid white;
+        transition: transform .2s ease;
+
+        &:hover {
+            transform: scale(1.03);
+        }
+
+        &:focus {
+            outline: 0;
+            background-color: $color_foreground;
+            transform: scale(1);
+        }
+    }
+
+    .redirect-links {
+        margin: 20px 0;
+        text-align: center;
+
+        p {
+            margin: 20px 0;
+
+            a {
+                padding: 5px 10px;
+                margin: 0 10px;
+                border: 1px solid white;
+                text-decoration: none;
+                border-radius: 10px;
+
+                color: white;
+                background-color: $color_background;
+                background-size: 200%;
+                background-image: linear-gradient(90deg,
+                        $color_background 0%,
+                        $color_background 50%,
+                        white 50%,
+                        white 100%);
+                transition: background-position .3s cubic-bezier(.47, .1, 1, .63),
+                    color .2s linear;
+                transition-delay: 0.0s, 0.15s;
+
+                &:hover {
+                    color: $color_background;
+                    cursor: pointer;
+                    background-color: white;
+                    background-position: -100% 100%;
                 }
             }
         }

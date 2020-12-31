@@ -1,0 +1,8 @@
+<div class="content masonry">
+    {{>admin-content-widget class='w-2' title='Aviso' content='Widgets brevemente disponíveis'}}
+</div>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script>
+    var baseItemWidth = document.querySelector(".content.masonry>.block:not(.w-2):not(.w-3)");
+    var msnry = new Masonry('.masonry', { columnWidth: baseItemWidth, itemSelector: '.block', percentPosition: true });
+</script>
